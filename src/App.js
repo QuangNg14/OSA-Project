@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Title from './components/Title'
 
-function App() {
+const App = () => {
+  const [clicks, setClicks] = useState(0)
+  const [clicks2, setClicks2] = useState(0)
+  //const function_a = () => {setClicks(1)}
+  // console.log(clicks)
+  // console.log(clicks2)
+  const combine = () => {
+    setClicks(clicks + 1)
+    setClicks2(clicks2 + 2)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Title name='Will' name2 = 'Andy'/>
+
+      <h1>{clicks}</h1>
+      <h1>{clicks2}</h1>
+
+      <button onClick={() => setClicks(clicks + 1)}>
+        +
+      </button>
+
+      <button onClick={() => setClicks(clicks - 1)}>-</button>
+
+      <button onClick={combine}>Combine</button>
+
+      {/* <button onClick={ () =>  {setClicks(clicks + 1); setClicks2(clicks2 + 2)}}>Combine</button> */}
     </div>
   );
 }
